@@ -5,9 +5,7 @@ machine:
 dependencies:
   override:
    - docker info
-   - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-                  --build-arg VCS_REF=`git rev-parse --short HEAD` \
-                  --rm=false -t jkohrman/docker-interactive .
+   - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` --rm=false -t jkohrman/docker-interactive .
 
 test:
   override:
