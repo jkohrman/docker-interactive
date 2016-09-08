@@ -1,4 +1,4 @@
-FROM busybox
+FROM busybox:1.25
 MAINTAINER Jeff Kohrman <jeff.kohrman@gmail.com>
 
 EXPOSE 8000
