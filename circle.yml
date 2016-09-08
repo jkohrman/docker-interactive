@@ -3,8 +3,6 @@ machine:
    - docker
 
 dependencies:
-  cache_directories:
-   - "~/.docker"
   override:
    - docker info
    - docker build --rm=false -t jkohrman/docker-interactive .
@@ -12,7 +10,7 @@ dependencies:
 test:
   override:
    - docker run -i lukasmartinelli/hadolint:latest < Dockerfile
-   - docker run --rm -p 8000:8000 jkohrman/docker-interactive:latest; sleep 10
+   - docker run -d -p 8000:8000 jkohrman/docker-interactive:latest; sleep 10
    - curl --retry 10 --retry-delay 5 -v http://localhost:8000
 
 deployment:
